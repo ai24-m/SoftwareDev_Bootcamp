@@ -1,0 +1,30 @@
+#search {
+
+    background-color: rgb(234, 236, 238);
+    border: rgb(79, 178, 177) solid 2px;
+    color: rgb(79, 178, 177);
+    border-radius: 40px;
+    width: 80px;
+    display: block;
+
+}
+
+#plus {
+    background-color: rgb(79, 178, 177);
+    border: solid;
+    color: aliceblue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 23px;
+}
+
+#creat {
+  
+        background-color: blue;
+        color: white;
+        border: solid;
+        border-color: black;
+        box-shadow: 4px 4px black;
+        display: block;
+}

@@ -1,0 +1,43 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(31, 31, 31);
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0;
+margin-bottom: 0;
+}
+
+.nav-title {
+    color: aliceblue;
+
+}
+
+.nav-links {
+    list-style-type: none;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 8px;
+
+    
+   } 
+
+
+.btn {
+    box-shadow: 4px 4px black;
+    color: white ;
+    border: 3px solid black;
+    background-color: rgb(82, 55, 107);
+
+}
+
+a {
+
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: auto;
+}
