@@ -5,9 +5,9 @@ def index(request):
     return redirect('/shows')
 
 def shows(request):
-    all_shows = Show.objects.all()
+    shows = Show.objects.all()
     context = {
-        'shows':all_shows,
+        'shows':shows,
     }
     return render(request,'showPage.html',context)
 
