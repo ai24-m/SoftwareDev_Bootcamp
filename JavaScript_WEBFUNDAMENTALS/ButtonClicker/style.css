@@ -1,0 +1,111 @@
+*{
+    /* outline: dotted red 2px; */
+}
+body{
+    font-family: Comic Sans MS, Comic Sans, cursive ;
+    
+}
+#container{
+
+    width: 800px;
+    margin: 0 auto;
+
+}
+
+#navigat{
+    align-items: center;
+    display: flex;
+    background-color: rgb(211, 211, 211);
+    justify-content: space-around;
+    height: 70px;
+}
+#navigat button{
+    background-color: rgb(63, 55, 233);
+    color: #fff;
+    width: 92px;
+    height: 32px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    font-size: 1rem;
+}
+
+#main{
+    display: flex;
+    justify-content: space-around;
+}
+
+#navigat input[type=text] {
+    float: right;
+    padding: 6px;
+    border: 1px black solid;
+    margin-top: 8px;
+    width: 400px;
+}
+
+.ninja button {
+    background-color: rgb(229, 179, 65);
+    color: rgb(0, 0, 0);
+    width: 92px;
+    height: 32px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    font-size: 1rem;
+}
+.ninja{
+    display: flex;
+    border: 2px black solid;
+    margin: 20px 19px 20px 0px;
+}
+
+
+
+
+.ninjaa {
+    width: 167px;
+    margin: 23px; 
+}
+
+/* element.style {
+    display: flex;
+} */
+h1{
+    margin: 0px;
+}
+#def{
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-around;
+    border: solid black 2px;
+    margin: 18px 1px;
+    height: 131px;
+    padding: 9px;
+    width: 191px;
+
+}
+#def p{
+    font-size: 19px;
+    padding: 0px 23px;
+    margin: 0px;
+}
+#def button {
+    background-color: rgb(113, 147, 90);
+    color: #fff;
+    /* width: 92px; */
+    height: 32px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    font-size: 1rem;
+}
+.center{   
+     right: 0px;
+    padding: 11px 65px 10px 10px;
+    margin-top: 32px;
+}
+
+.center p{
+    font-size: 21px;
+}
+span{
+
+    font-style: italic;
+}

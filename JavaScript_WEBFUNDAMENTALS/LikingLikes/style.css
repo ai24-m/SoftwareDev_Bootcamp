@@ -1,0 +1,71 @@
+body{
+    width: 800px;
+    margin: 0px auto;
+}
+.main{
+    border: 2px solid black;
+    width: 350px;
+    margin: 0px auto;
+    padding: 10px;
+    margin: 10px;
+}
+button{
+    flex: 1;
+    border: 2px black solid;
+    background-color: yellow;
+    box-shadow: 4px 4px black;
+
+}
+.main-u{    
+    border: 2px solid black;
+    width: 146px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-content: center; */
+    align-items: center;
+    margin: 10px;
+    padding: 16px;
+}
+img{
+    height: 106px;
+    margin: 11px;
+}
+
+.user{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.user h2{
+    align-items:left;
+}
+h2{
+    flex: 4;
+    text-align: center;
+}
+p{
+    flex: 2;
+
+}
+
+
+h1{
+    background-color: black;
+    color: white;
+    padding: 10px ;
+}
+
+#mainn{
+    display: flex;
+    margin: 0px auto;
+    width: 596px;
+    justify-content: center;
+
+}
+.user span{
+
+    text-align: center;
+}
