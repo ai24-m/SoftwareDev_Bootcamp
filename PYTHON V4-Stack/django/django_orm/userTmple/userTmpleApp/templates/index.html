@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Template</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+</head>
+<body>
+    <h1>All the Users </h1>
+    <table id="mainTable">
+        <tr>
+            <th >ID</th>
+            <th class="tsize">Name</th>
+            <th class="tsize">Email</th>
+            <th>Age</th>
+        </tr>
+        {%for user in users%}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.fname}} {{user.lname}} </td>
+            <td>{{user.email}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <hr>
+    <h2>Add a User</h2>
+    <form action="/newUser" method="post">
+        {% csrf_token%}
+        <table>
+            <tr>
+                <td>First Name :</td>
+                <td><input type="text" name="fname"></td>
+                <td>Last Name : </td>
+                <td><input type="text" name="lname"></td>
+            </tr>
+            <tr>
+                <td>Email : </td>
+                <td><input type="email" name="email"> </td>
+                <td>  Age :</td>
+                <td> <input type="number" name="age"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Add" id="Add" class="finput">
+    </form>
+</body>
+</html>

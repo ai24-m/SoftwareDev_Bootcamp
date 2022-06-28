@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete a cource</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body class="mx-auto" style="width: 960px;" >
+        <h2 class="mt-5">Are you sure want to delete the following course ? </h2>
+                <!-- <figure class="text-center">
+            <blockquote class="blockquote">
+            <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+            </figcaption>
+        </figure> -->
+
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Name :</label>
+            <div class="col-sm-8">
+                <span> {{this_course.course_name}} </span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="desc" class="col-sm-2 col-form-label">Description :</label>
+            <div class="col-sm-8">
+                <span > {{this_course.description}} </span> 
+            </div>
+        </div>
+        </div>
+        <br>
+        <br>
+        <div class="text-center" >
+            <tr>
+                    <td>
+                        <a class="btn btn-dark btn-medium "  href="/"> No</a>
+                    </td>
+                    <td>
+                        <a  class="btn btn-medium btn-danger me-3" href="/deletethis/{{this_course.id}}"> Yes!! I want to delete this course</a>
+                    </td>
+                </tr>
+        </div>
+    
+</body>
+</html>

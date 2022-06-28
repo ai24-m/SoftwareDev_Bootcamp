@@ -1,0 +1,73 @@
+source  ../../../my_environments/djangoPy3Env/bin/activate
+python3 manage.py makemigrations
+python3 manage.py migrate 
+python3 manage.py shell
+
+>>> from bookAuthorsApp.models import *
+
+>>> Book.objects.create(title='C Sharp')
+>>> Book.objects.create(title='Java')
+>>> Book.objects.create(title='Python')
+>>> Book.objects.create(title='PHP')
+>>> Book.objects.create(title='Ruby')
+
+>>> Author.objects.create(fname='Jane',lname='Austen')
+>>> Author.objects.create(fname='Emily',lname='Dickinson')
+>>> Author.objects.create(fname='Fyodor',lname='Dostoevsky')
+>>> Author.objects.create(fname='William',lname='Shakespeare')
+>>> Author.objects.create(fname='Lau',lname='Tzu')
+
+>>> exit()
+
+python3 manage.py makemigrations
+python3 manage.py migrate  
+python3 manage.py shell 
+
+>>> from bookAuthorsApp.models import *
+>>> c = Book.objects.get(id=1)
+>>> c.title = "C#"
+>>> c.save()
+
+>>> c = Author.objects.get(id=4)
+>>> c.fname = "Bill"
+>>> c.save()
+
+>>> Jane=Author.objects.get(id=1)
+>>> firstBook=Book.objects.get(id=1)
+>>> secondBook=Book.objects.get(id=2)
+>>> Jane.books.add(firstBook)
+>>> Jane.books.add(secondBook)
+
+>>> Emily=Author.objects.get(id=2)
+>>> thirdBook=Book.objects.get(id=3)
+>>> Emily.books.add(firstBook)
+>>> Emily.books.add(secondBook)
+>>> Emily.books.add(thirdBook)
+
+>>> Fyodor=Author.objects.get(id=3)
+>>> fourthBook=Book.objects.get(id=4)
+>>> Fyodor.books.add(firstBook)
+>>> Fyodor.books.add(secondBook)
+>>> Fyodor.books.add(thirdBook)
+>>> Fyodor.books.add(fourthBook)
+
+>>> William=Author.objects.get(id=4)
+>>> book5=Book.objects.get(id=5)
+>>> William.books.add(firstBook)
+>>> William.books.add(secondBook)
+>>> William.books.add(thirdBook)
+>>> William.books.add(fourthBook)
+>>> William.books.add(book5)
+
+>>> thirdBook.authors.all()
+
+>>> thirdBook.authors.remove(Author.objects.get(id=1))
+
+>>> Lau=Author.objects.get(id=5)
+>>> Lau.books.add(secondBook)
+
+>>> Fyodor.books.all()
+
+>>> book5.authors.all()
+
+>>> exit()

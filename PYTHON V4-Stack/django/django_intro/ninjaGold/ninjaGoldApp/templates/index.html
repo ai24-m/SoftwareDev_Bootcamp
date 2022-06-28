@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ninja Gold</title>
+        {% load static %}	
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    </head>
+    <body>
+        <div class="container">
+            <div id="top">
+                <p>Your Gold:</p><input type="text" name="gold_amount" value="{{gold}}" readonly>
+                <form id="rest" action="/reset" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Reset</button>
+                </form>
+            </div>
+            <form class="forms" action='/process_money' method='post'>
+                {% csrf_token %}
+                <h3>Farm</h3>
+                <p>(earns 10-20 gold)</p>
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="farm" value="farm">
+            </form>
+            <form class="forms" action='/process_money' method='post'>
+                {% csrf_token %}
+                <h3>Cave</h3>
+                <p>(earns 10-20 gold)</p>
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="cave" value="cave">
+            </form>
+            <form class="forms" action='/process_money' method='post'>
+                {% csrf_token %}
+                <h3>House</h3>
+                <p>(earns 10-20 gold)</p>
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="house" value="house">
+            </form>
+            <form class="forms" action='/process_money' method='post'>
+                {% csrf_token %}
+                <h3>Quest</h3>
+                <p>(earns/takes 0-50 gold)</p>
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="quest" value="Quest">
+            </form>
+
+            <div class="bottom">
+            <p>Activities:</p>
+            <div name=" activity" id="bottom">
+                {% for i in messages %}
+                    {% if 'failed' in i %}
+                    <p style="color: red;">
+                        {{i}}
+                    </p>  
+                    {% else %}
+                    <p style="color: green;">
+                        {{i}}
+                    </p> 
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{show.title}}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Online Boostrap css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+
+<body>
+    <div class="container my-4 d-flex justify-content-evenly align-items-center">
+        <h1 class="display-5 text-center flex-grow-1">Edit Show {{show.id}}</h1>
+        <a href="/shows" class="align-self-start">Go Back</a>
+    </div>
+    <div class="container">
+        <form action="/shows/{{show.id}}/update" method='POST' class="w-50 mx-auto">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" value="{{show.title}}" class="form-control" name="title" required/>
+            </div>
+
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="col-5">
+                    <label for="network" class="form-label">Network</label>
+                    <input type="text" value="{{show.network}}" class="form-control" name="network" required/>
+                </div>
+                <div class="col-5">
+                    <label for="releaseDate" class="form-label">Release Date</label>
+                    <input type="date" value="{{show.release_date|date:'Y-m-d'}}" class="form-control" name="releaseDate" required/>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <textarea class="form-control" name="desc" rows="3">{{show.desc}}</textarea>
+            </div>
+
+            <div class="mb-3 d-flex flex-column align-items-center">
+                <button type="submit" class="btn btn-white text-dark border border-dark w-25 border-2">Update</button>
+                <a href="/shows" class="my-3">Go to Show</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

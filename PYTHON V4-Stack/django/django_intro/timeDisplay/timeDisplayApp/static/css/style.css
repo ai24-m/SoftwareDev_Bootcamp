@@ -1,0 +1,27 @@
+
+h3{
+    border: 1px solid black;
+    padding:20px;
+    font-weight: normal;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.timeDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    border: 1px black solid;
+    font-size: 30px;
+    padding: 15px;
+
+}
+p {
+    margin: 7px;
+    font-size: 25px;
+
+}

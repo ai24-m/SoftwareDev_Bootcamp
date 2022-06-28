@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300&family=Dosis:wght@300&family=Righteous&family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="result">
+        <h2>Submitted Info</h2>
+        <h4>Name: <span>{{name}}</span></h4>
+        <h4>Dojo Location: <span>{{location}}</span></h4>
+        <h4>Favorite Language: <span> {{language}} !!</span></h4>
+        <h4>Comment: <span>{{comment}}</span> </h4>
+
+        <form action="/home", method="post">
+            {% csrf_token %}
+            <button class="submit" name="goBack" type="submit" value="Go Back">Go Back</button>
+        </form>
+    </div>
+</body>
+</html>

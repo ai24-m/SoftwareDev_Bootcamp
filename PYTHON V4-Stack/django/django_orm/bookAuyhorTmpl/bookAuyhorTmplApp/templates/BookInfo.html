@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{book.title}} Information</title>
+    <!-- Online Boostrap css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body>
+    <div class="p-5">
+        <div class="container">
+            <form action="/" method="post">
+                {% csrf_token%}
+                <button class="btn btn-primary m-3"  >Go back</button>
+            </form>
+            <div class="info">
+                <h1 class="display-4" >Book Name: {{book.title}}</h1>
+                <hr>
+                <p>ID: <b>{{book.id}}</b></p> 
+                <p>Description: <b>{{book.desc}}</b></p> 
+                <p>Authors: </p> 
+                <ul>
+                    {% for author in book.authors.all%}
+                    <li>{{author.fname}} {{author.lname}}</li>
+                    {%endfor%}
+                </ul>
+                
+                <form  class="form-floating" action="/AddAuthor_Book/{{book.id}}/" method="post">
+                    {% csrf_token%}
+                    <select  class="form-select"  name="author_id" >
+                        {% for author in authors%}
+                        <option value="{{author.id}}">
+                            {{author.fname}} {{author.lname}}
+                        </option>
+                        {%endfor%}
+                    </select>
+                    <button   class="btn m-2 btn-primary" >Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

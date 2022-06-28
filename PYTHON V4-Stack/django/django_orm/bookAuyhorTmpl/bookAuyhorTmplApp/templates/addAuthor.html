@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author</title>
+    <!-- Online Boostrap css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body>
+    <div class="p-5">
+
+        <form action="/" method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary m-3" >Go to Books</button>
+        </form>
+        <div >
+            <div class="row m-2 p-2" >
+                <div class="col m-1 p-3 border-opacity-25 rounded border border-dark " >
+                    <h1>Add Author</h1>
+                    <form action="/AddAuthor" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label>First Name</label>
+                            <div>
+                            <input class=" p-2  form-control "  type="text" name="fname" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Last Name</label>
+                            <div>
+                            <input class=" p-2  form-control "  type="text" name="lname" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Notes</label>
+                            <div>
+                                <textarea class=" p-2  form-control "  type="text" name="notes"></textarea>
+                            </div>
+                        </div>
+                        <input class="btn btn-primary m-3" type="submit" value="Add">
+                    </form>
+                </div>
+                <div class="col me-5">
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for author in authors%}
+                        <tr>
+                            <td>{{author.id}}</td>
+                            <td>{{author.fname}} {{author.lname}}</td>
+                            <td><a href="/authors/{{author.id}}">View</a></td>
+                            <td><a href="/delete_author/{{author.id}}">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

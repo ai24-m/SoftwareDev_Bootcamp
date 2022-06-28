@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <!-- Online Boostrap css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body>
+    <div class="p-5">
+
+        <form action="/authors" method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary m-3">Go to Authors</button>
+        </form>
+        
+            <div class="row m-2 p-2">
+                <div class="col m-1 p-3 border-opacity-25 rounded border border-dark ">
+                    <h1>Add Book</h1>
+                    <form action="/AddBook" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label>Title</label>
+                            <div>
+                                <input class=" p-2  form-control "  type="text" name="title" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Description</label>
+                            <div>
+                                <textarea class=" p-2  form-control "  type="text" name="desc"></textarea>
+                            </div>
+                        </div>
+                        <input class="btn btn-primary m-3" type="submit" value="Add">
+                    </form>
+                </div>
+    
+                <div class="col me-5" >
+                    <table class="table" >
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for book in books%}
+                        <tr>
+                            <td>{{book.id}}</td>
+                            <td>{{book.title}}</td>
+                            <td><a href="/books/{{book.id}}">View</a></td>
+                            <td><a href="/deleteBook/{{book.id}}">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

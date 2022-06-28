@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Add Your Books</title>
+        <!-- Online Boostrap css -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body  >
+    <div  class="container">
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        <nav class="navbar navbar-expand-lg m-2 bg-light">
+            <div class="container-fluid">
+                <h1>Welcome <a href="#">{{user.fname}} {{user.lname}}</a></h1>
+                <!-- <h1>Welcome <a href="/proflie/{{book.uplodedBy.id}}">{{user.fname}} {{user.lname}}</a></h1> -->
+
+                <div class="nav justify-content-end">
+                    <a   class="ms-5" href="/logout">Log out</a>
+                    <a class="btn btn-primary" href="/books" role="button">Go back</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- <div>
+            <h1>Welcome {{user.fname}} </h1>
+            <div class="actions">
+                <a class="w-25 mx-4" href="/logout">Log out</a>
+                <a class="btn btn-primary" href="/books" role="button">Go back</a>
+            </div>
+        </div> -->
+
+        <hr>
+        <!-- <div class="container"> -->
+            <!-- <div class="row">
+              <div class="col">
+                1 of 2
+              </div>
+              <div class="col">
+                2 of 2
+              </div> -->
+            <!-- </div> -->
+        <div class="row m-2 p-2">
+                <div class="col m-1 p-3 border-opacity-25 rounded border border-dark ">
+                <form action="/newBook" method="post">
+                    {% csrf_token %}
+
+                    <h2>Add a Favorit Book</h2>
+                    <div class="col-sm-4">
+                        <label class="  col-sm-2 col-form-label "  for="title">Titile:</label>
+                        <div>
+                            <input  class=" p-2  form-control " type="text" name="title" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="  col-sm-2 col-form-label " for="desc">Description:</label>
+                        <div class="col-sm-8">
+                            <textarea  class=" p-2  form-control "  name="desc" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary m-3" type="submit" value="Add">
+                </form>
+            </div>
+            
+            <div class="col me-5">
+                <h2>All Books</h2>
+                {% for book in books %}
+                <div class="container mb-4 ">
+                    <a href="books/{{book.id}}">{{book.title}}</a>
+                    <p>
+                    ( added By {{book.uplodedBy.fname}} {{book.uplodedBy.lname}} )
+                    </p>
+                    <div>
+                        {% if user in book.userLikes.all %}
+                        <p>
+                            this is one of your favorits
+                        </p>
+                        {% else %}
+                        <a href="bookLiked/{{book.id}}">Add to your favorits</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div> 
+        </div>
+        
+    </div>
+    <!-- <a href="/logout">Log Out!</a> -->
+</body>
+</html>

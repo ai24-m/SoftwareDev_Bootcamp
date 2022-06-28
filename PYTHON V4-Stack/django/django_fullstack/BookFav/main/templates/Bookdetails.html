@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Page</title>
+    <!-- Online Boostrap css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body>
+    <div>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        <nav class="navbar navbar-expand-lg m-2 bg-light">
+            <div class="container-fluid">
+                <h1>Welcome {{user.fname}} {{user.lname}}</h1>
+                <div class="nav justify-content-end">
+                    <a   class="ms-5" href="/logout">Log out</a>
+                    <a class="btn btn-primary" href="/books" role="button">Go back</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <hr>
+        <div class="row m-2 p-2">
+            <div class="col m-1 p-3 border-opacity-25 rounded border border-dark " >
+                <form action="/update/{{book.id}}" method="post">
+                {% csrf_token %}
+
+                {%if user.id == book.uplodedBy.id %}
+                <input class=" p-2  form-control " type="text" name="title" value="{{book.title}}" >
+                {%else%}
+                    <p>{{book.title}}</p>
+                    {% endif %}
+                    <p>
+
+                        Added by: <a href="#"> {{book.uplodedBy.fname}} {{book.uplodedBy.lname}} </a> 
+                        <!-- Added by: <a href="/proflie/{{book.uplodedBy.id}}"> {{book.uplodedBy.fname}} {{book.uplodedBy.lname}} </a>  -->
+                    </p>
+                <!-- {{book.uplodedBy.fname}} {{book.uplodedBy.lname}} -->
+                <p>
+                    Added on {{book.createdAt}}
+                </p> 
+                <p>
+                    Last updatedon : {{book.updatedAt}}
+        
+                </p>
+                <div>
+                    <p>Description</p>
+                    {% if user.id == book.uplodedBy.id%}
+                    <textarea class=" p-2  form-control " name="desc" cols="30" rows="10">{{book.desc}}</textarea>
+                    <button type="submit" class="btn btn-primary m-3">Update</button>
+                    <a class="btn btn-primary m-3" href="/del/{{book.id}}">delete</a>
+                    {%else%}
+                    {{book.desc}}
+                    {%endif%}
+                </div>
+                </form>
+            </div>
+            <div class="col me-5">
+
+                    <h2>Users Who Like This Book</h2>
+
+                    <ul>
+                        {% for user in book.userLikes.all %}
+                        <li>
+                            {{user.fname}} {{user.lname}}
+                        </li>
+                        {% endfor %}
+
+                        </ul>
+
+                        {% if user in book.userLikes.all %}
+                        <a href="/bookUnliked/{{book.id}}">Un-Favorite</a>
+                        {% else %}
+                            <a href="/bookLiked/{{book.id}}">Add to Favorites</a>
+                        {% endif %}
+                    <!-- </div> -->
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

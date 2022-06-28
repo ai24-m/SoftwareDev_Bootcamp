@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Game </title>
+    {% load static %}	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+    <div id="container">
+        <h1>Welcome to the Great Number Game!</h1>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess!</p>
+        {% if newgame == False %}
+        <div id="wrong">
+            {{out}}
+        </div>
+        {% elif newgame == True %}
+        <div id="correct">
+            {{out}}
+            <form action="/newgame">
+                {% csrf_token %}
+                <button type="submit">Play Again!</button>
+            </form>
+        {% endif %}
+        </div>
+        <span>{{noNumberInter}}</span>
+        <form action="/show" method="post">
+            {% csrf_token %}
+            <input type="text" name="guess" >
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

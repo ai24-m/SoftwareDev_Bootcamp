@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment: Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300&family=Dosis:wght@300&family=Righteous&family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <form class="form" action="/result", method="post">
+        {% csrf_token %}
+        <label for="">Your Name: <input type="text" name="name" ></label> 
+        <label for="">
+            Dojo Location:
+            <select name="location" >
+                <option value="Riyadh">Riyadh</option>
+                <option value="Jeddah">Jeddah</option>
+                <option value="Abha">Abha</option>
+                <option value="Khobar">Khobar</option>
+            </select>
+        </label>
+        <label for="">
+            Favorite Language:
+            <select name="language" >
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Php">Php</option>
+                <option value="c#">C#</option>
+            </select>
+        </label>
+        <br>
+        Comment(optional): <br><br>
+        <textarea name="comment" rows="10" cols="70"></textarea>
+        <br>
+        <input class="submit" type="submit" value="Submit">
+    </form>
+</body>
+</html>

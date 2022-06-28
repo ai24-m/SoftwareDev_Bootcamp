@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Online Boostrap css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <title>Amadon</title>
+</head>
+<body>
+
+    <div class="container w-50 mx-auto ">
+        <h1 class="text-center">Amadon Store</h1>
+        <table class="table table-light table-striped ">
+            <thead class="table">
+                <tr>
+                    <td scope="col">Items</td>
+                    <td scope="col">Price</td>
+                    <td scope="col">Quantity</td>
+                    <td scope="col">Action</td>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" >
+                {% for product in all_products %}
+                <tr>
+                    <form action="/buy" method="post">
+                        {% csrf_token %}
+                        <td>{{product.description}}</td>
+                        <input type="hidden" name="product_name" value="{{product.description}}">
+                        <td><input type="hidden" name="product_id" value="{{product.id}}">{{product.price}}</td>
+                        <td><select class="form-control w-25" name="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select></td>
+                        <td><input class="btn btn-secondary" type="submit" value="Buy!"></td>
+                    </form>
+                </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

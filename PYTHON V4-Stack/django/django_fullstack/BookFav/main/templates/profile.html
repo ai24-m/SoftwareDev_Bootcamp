@@ -1,0 +1,43 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="p-5 bg-light">
+        <div class="container">
+
+            <h1>{{user.fname}} {{user.lname}}</h1>
+            <p>Published Books: {{ user.books_uploaded.all | length }} | Favorite Books: {{ user.liked_books.all | length }}</p>
+            <hr>
+            <p>Favorite Books:</p>
+            <table class="table">
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Book Link</th>
+                        <th>Like it?</th>
+                    </tr>
+                    {% for book in user.liked_books.all %}
+                    <tr>
+                        <td scope="row">{{book.title}}</td>
+                        <td>
+                            <a href="/books/{{book.id}}">Review the book</a>
+                        </td>
+                        <td>
+                            {% if i in book.userLikes.all %}
+                                <a href="/bookUnliked/{{book.id}}">Un-Favorite</a>
+                            {% else %}
+                                <a href="/bookLiked/{{book.id}}">Add to Favorites</a>
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                        </tr>
+            </table>
+        </div>
+    </div>
+        
+</body>
+</html> -->

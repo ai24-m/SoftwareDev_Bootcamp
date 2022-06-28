@@ -1,0 +1,19 @@
+table{
+    margin: 0% auto;
+    align-items: center;
+}
+table, th, td {
+    border: 1px solid black;
+}
+table th{
+    font-size: large;
+    height: 30px;
+    width: 150px;
+    color:palevioletred;
+}
+table td{
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: lavenderblush;
+}

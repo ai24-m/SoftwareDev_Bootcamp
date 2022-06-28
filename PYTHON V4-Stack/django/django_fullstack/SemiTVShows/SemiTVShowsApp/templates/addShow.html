@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Create</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+ <!-- Online Boostrap css -->
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+
+<body>
+    <div class="container my-4 d-flex justify-content-evenly align-items-center">
+        <h1 class="display-5 text-center flex-grow-1">Add a New Show</h1>
+        <a href="/shows" class="align-self-start">Go Back</a>
+    </div>
+    <div class="container">
+        <form action="/shows/create" method="POST" class="w-50 mx-auto">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" required/>
+            </div>
+
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="col-5">
+                    <label for="network" class="form-label">Network</label>
+                    <input type="text" class="form-control" name="network" required/>
+                </div>
+                <div class="col-5">
+                    <label for="releaseDate" class="form-label">Release Date</label>
+                    <input type="Date" class="form-control" name="releaseDate" required/>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <textarea class="form-control" name="desc" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3 d-flex justify-content-center">
+                <button type="submit" class="btn btn-white text-dark border border-dark w-25 border-2">Create</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
