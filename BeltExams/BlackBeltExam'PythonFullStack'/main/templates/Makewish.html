@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Dash Board </title> 
+            <!-- Online Boostrap css -->
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    </head>
+<body style="width:900px ;" class=" mx-auto">
+        <div class="alert alert-primary" >
+
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        </div>
+
+    <!-- <div class="row d-flex "> -->
+
+        <nav class="navbar navbar-expand-lg m-2 bg-light">
+            <div class="container-fluid">
+                <h1 class="me-5">Hello  {{users.fname}}! , Make a Wish </h1>
+                <div class="nav justify-content-end">
+                    <a   class="ms-5" href="/logout">Log out</a>
+                </div>
+            </div>
+        </nav>
+        <div class="flex-grow-1 col-3 p-2 row mb-3 ">
+        </div>
+
+    <div class="border border-dark  m-5 p-4  col border-opacity-25 rounded">
+            <form action="/makeWish" method="post"  >
+                {% csrf_token %}
+                <label class=" col-form-label " for="item">I wish for : </label>
+                    <div class="col-sm-3">
+                        <input class=" p-2  form-control " type="text" name="item">
+                    </div>
+                    <div  >
+                        <label class="  col-sm-2 col-form-label "  for="desc">Description : </label>
+                        <div class="col-sm-6">
+                        <textarea  class=" p-2  form-control "  name="desc" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="btn btn-primary m-3" type="submit" value="Submit" >
+                        <a class="btn btn-primary m-3" href="/wishes">Cancle</a>
+                    </div>
+                </form>
+    </div>
+</body>
+</html>
