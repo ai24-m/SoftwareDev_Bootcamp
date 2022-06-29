@@ -11,10 +11,27 @@ def shows(request):
     }
     return render(request,'showPage.html',context)
 
-def show_new(request):
+def addPage(request):
     return render(request,'addShow.html')
 
-def create_show(request):
+def show(request,_id):
+    show = Show.objects.get(id=_id)
+    context = {
+        'show':show,
+    }
+    return render(request,'index.html',context)
+
+
+
+def showEdit(request,_id):
+    show = Show.objects.get(id=_id)
+    context = {
+        'show':show,
+    }
+    return render(request,'Edit.html',context)
+
+
+def newShow(request):
     if request.method == 'POST':
         show = Show.objects.create(
             title = request.POST['title'],
@@ -24,25 +41,10 @@ def create_show(request):
         )
         show.save()
         return redirect(f'/shows/{show.id}')
-
     return redirect('/')
 
-def show(request,_id):
-    _show = Show.objects.get(id=_id)
-    context = {
-        'show':_show,
-    }
-    return render(request,'index.html',context)
 
-
-def show_edit(request,_id):
-    show = Show.objects.get(id=_id)
-    context = {
-        'show':show,
-    }
-    return render(request,'Edit.html',context)
-
-def show_update(request,_id):
+def showUpdate(request,_id):
     if request.method == 'POST':
         show = Show.objects.get(id=_id)
         show.title = request.POST['title']
@@ -50,13 +52,11 @@ def show_update(request,_id):
         show.desc = request.POST['desc']
         show.releaseDate = request.POST['releaseDate']
         show.save()
-    
     return redirect(f'/shows/{_id}')
 
-def show_destory(request,_id):
+def showDestory(request,_id):
     show = Show.objects.get(id=_id)
     show.delete()
-
     return redirect('/shows')
 
 
