@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dash Board </title> 
+        <!-- Online Boostrap css -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body>
+    <div>
+
+        <div>
+            <nav class="navbar navbar-expand-lg m-2 bg-light">
+                <div class="container-fluid">
+                    <h1 class="me-5">Hello {{users.fname}}! </h1>
+                    <div class="nav justify-content-end">
+                        <a  href="/logout">Log out</a>
+                        <a  class="btn btn-medium btn-primary me-5" href="/state">View stats</a>
+                        <a class="btn btn-medium btn-primary me-5"  href="/new">Make a wish</a>
+                        <!-- <input type="submit" value="Make a wish"> -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <div>
+
+            <div class="container mb-4" >
+                <table class="table table-bordered border-black " >
+                </table>
+                
+                <table class="table">
+                    <h3 class="mb-3 " >Your wish list : </h3>
+                    <tr>
+                        <th scope="col">Items</th>
+                        <th scope="col">Date added</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    {% for Items in users.itemUploader.all %}
+                    <tr>
+    
+                        <tr>
+                            <td>{{Items.item}}</td>
+                            <td>{{Items.createdAt|date:"b-d-Y"}}</td>
+                            <td class="nav justify-content-evenly">
+                                <a href="/delete/{{Items.id}}"> Remove </a> |
+                                <a href="/edit/{{Items.id}}"> Edit </a> |
+                                <form action="/grant/{{Items.id}}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="item" value="{{Items.item}}">
+                                    <input type="hidden" name="createBy" value="{{users.id}}">
+                                    <input  type="hidden" name="createdAt" value="{{Items.createdAt}}">
+                                    <button  class="btn btn-primary me-2" type="submit">Granted!</button>
+                                </form>
+                                </td>
+                            {% endfor %}
+                        </tr>
+    
+                </table>
+
+            </div>
+            <div class="container mb-4 ">
+                        
+                        <table class="table">
+                            <h3 class="mb-3 " >Granted Wishes:</h3>
+
+                            <tr>
+                                <th>Items</th>
+                                <th>Wisher</th>
+                                <th>Data added</th>
+                                <th>Data Grahted</th>
+                                <th>Likes</th>
+                                <th>Actions</th>
+                            </tr>
+                    {% for g in granted %}
+                <tr>
+                    <td>{{g.item }}</td>
+                    <td>{{g.createBy.fname}}</td>
+                    <td>{{g.createdAt|date:"b-d-Y"}}</td>
+                    <td>{{g.grantedAt |date:"b-d-Y"}}</td>
+                    <td>{{g.likedBy.all|length}}</td>
+                    {% if users == g.createBy %}
+                    <td></td>
+                    {%else%}
+                    <td> <a  href="/likes/{{g.id}}">Like</a></td> 
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html> 

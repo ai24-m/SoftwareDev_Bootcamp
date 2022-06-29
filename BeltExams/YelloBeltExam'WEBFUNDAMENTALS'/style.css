@@ -1,0 +1,256 @@
+* {
+    /* outline: dotted red 2px ; */
+
+}
+hr{
+    height: 2px;
+    background-color: #000;
+}
+
+
+body {
+    width: 920px;
+    margin: 0px auto;
+
+}
+
+#nav {
+    /* width: 900px; */
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-between;
+    color: white;
+}
+
+#nav button {
+    background-color: rgb(255 255 255);
+    border: 0 solid;
+    height: 47%;
+    color: #1c1c1c;
+    font-size: 20px;
+}
+
+.search-bar {
+    margin-top: 25px;
+    display: flex;
+    width: 62%;
+    height: 20px;
+    border-radius: 60px;
+    padding: 5px;
+    background-color: white;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid rgb(170 170 170);
+
+}
+
+.search-bar img {
+    height: 19px;
+    margin-right: 8px;
+}
+
+#nav input[type=text] {
+    outline: none;
+    background: transparent;
+    flex: 1;
+    padding: 6px;
+    border: 0px solid;
+}
+
+.cookies {
+    background-color: white;
+    display: flex;
+    position: fixed;
+    border: black solid 2px;
+    flex-direction: row;
+    align-items: center;
+    width: 915px;
+    bottom: 0%;
+    height: 87px;
+}
+
+
+.cookies img {
+    margin-left: 20px;
+    height: 80px;
+}
+
+.cookies p {
+    /* flex: 3; */
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.cookies h3 {
+    margin: 18px 39px 4px 3px;
+}
+
+.cookies button {
+    background-color: #4db6ac;
+    color: #ffffff;
+    height: 32px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    font-size: 1rem;
+    flex: 1;
+    margin: 35px;
+}
+
+#Coo {
+    flex: 6;
+}
+
+#imgCo {
+    margin: 0px -41px 0px 8px;
+    flex: 2;
+}
+
+#plant-se {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#plant-se button {
+    background-color: rgb(255, 255, 255);
+    border: 0 solid;
+    height: 47%;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+#plant {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #b1e9f0;
+    height: 219px;
+}
+
+#plant img {
+    height: 110px;
+    margin: 20px;
+    margin-bottom: 0px;
+    border-radius: 50%;
+}
+
+.plant {
+    display: flex;
+    flex-direction: column;
+}
+
+#phpImg {
+    display: flex;
+
+}
+
+#discover {
+    display: flex;
+    padding: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+.disI {
+    height: 38px;
+    margin: 15px 0px;
+}
+
+
+#dis {
+    display: flex;
+    flex-direction: column;
+    background-color: #009688;
+    justify-content: space-between;
+    align-items: stretch;
+    color: white;
+    height: 326px;
+    padding: 2px;
+
+}
+
+#dis p {
+    padding: 29px;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+#sooth {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    padding-right: 0px;
+}
+.plant button
+{
+
+    background-color: transparent;
+    border: 0 solid;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    align-items: center;
+    margin: 16px 0px;
+    justify-content: center;
+}
+#sooth button {
+    display: flex;
+    background-color: rgb(0 150 136);
+    border: 0 solid;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding: 12px;
+    padding-left: 29px;
+}
+
+#dis button {
+    display: flex;
+    background-color: rgb(0 150 136);
+    border: 0 solid;
+    color: white;
+    font-size: 26px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.butndiv {
+    display: flex;
+    width: 126px;
+    font-size: 2px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+
+.butndiv img {
+    height: 40px;
+
+}
+
+#h2 {
+    /* text-align: center;
+    font-size: 40px; */
+    font-family: system-ui;
+    text-align: center;
+    font-size: 35px;
+}
+
+#nav-im {
+    background-color: #009688;
+    border-radius: 10px;
+    margin: 10px 0px;
+    /* margin-left: 0px; */
+    height: 56px;
+}
+
+h1 {
+
+    color: #000;
+    /* width: 177px; */
+}

@@ -1,0 +1,9 @@
+asgiref==3.5.2
+autopep8==1.6.0
+bcrypt==3.2.2
+cffi==1.15.0
+Django==4.0.5
+pycodestyle==2.8.0
+pycparser==2.21
+sqlparse==0.4.2
+toml==0.10.2

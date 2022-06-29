@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Index </title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+</head>
+<body class="mx-auto"  style="width:1200px ;">
+    <div>
+
+        {% if messages %}
+        <ul class=" w-50 mt-4 p-4 alert  alert-primary messages">    
+            {% for message in messages %}    
+                <li>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </div>
+        <!-- <nav class="navbar p-3 m-2 navbar-expand-lg bg-light"> -->
+
+            <h1 class="m-5">Welcome! Sign in to make a wish!</h1>
+        <!-- </nav> -->
+        <div class="row d-flex " >
+            <div class="flex-grow-1 col-3 p-2 ">
+                <form action="/register" method="post" class="border border-dark mt- 2 m-5 p-5  col border-opacity-75 rounded ">
+                    {% csrf_token %}
+                    <h2>Registration</h2>
+                    <hr>
+                    <div class="row mb-3" >
+                        <label for="fname" class="  flex-grow-1 col-sm-1 col-form-label ">First Name:</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="fname" class=" p-2  form-control " >
+                        </div>
+                    </div>
+                    <div class="row mb-3" >
+                        <label for="lname" class="  flex-grow-1 col-sm-1 col-form-label " >Last Name:</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="lname" class=" p-2  form-control " >
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="email" class="  flex-grow-1 col-sm-1 col-form-label ">Email:</label>
+                        <div class="col-sm-8">
+                            <input type="email" name="email" class=" p-2  form-control " >
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="password" class="  flex-grow-1 col-sm-1 col-form-label ">Password:</label>
+                        <div class="col-sm-8">
+                            <input type="password" name="password" class=" p-2  form-control " >
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="Cpassword" class="  flex-grow-1 col-sm-1 col-form-label ">Confirm Password:</label>
+                        <div class="col-sm-8">
+                            <input type="password" name="Cpassword" class=" p-2  form-control " >
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <input type="submit" value="Registrate" class="btn btn-primary me-2" >
+                    </div>
+                </form>
+            </div>
+            <div class=" col mt-2">
+                <form action="/login" method="post" class="align-self-center col border border-dark border-opacity-50 rounded m-5 p-5">
+                    {%  csrf_token %}
+                    <h2>Login</h2>
+                    <hr>
+                    <div class="row mb-3">
+                        <label for="email" class="  flex-grow-1 col-sm-1 col-form-label ">Email:</label>
+                        <div class="col-sm-8">
+                            <input type="email" name="email" class=" p-2  form-control " >
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="password" class="  flex-grow-1 col-sm-1 col-form-label ">Password:</label >
+                        <div class="col-sm-8">
+                            <input type="password" name="password" class=" p-2  form-control ">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <input type="submit" value="Login" class="btn btn-primary me-2" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
