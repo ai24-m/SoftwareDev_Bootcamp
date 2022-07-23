@@ -6,19 +6,19 @@ public class GorillaTest {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Mammal g = new Mammal();
-		Gorilla h = new Gorilla();
+		Mammal mammal = new Mammal();
+		Gorilla gorilla = new Gorilla();
 		
-		g.displayEnergy();
-		h.throwSomething();
-		h.throwSomething();
-		h.throwSomething();
-		g.displayEnergy();
-		h.eatBananas();
-		h.eatBananas();
-		g.displayEnergy();
-		h.climb();
-		g.displayEnergy();
+		mammal.displayEnergy();
+		gorilla.throwSomething();
+		gorilla.throwSomething();
+		gorilla.throwSomething();
+		mammal.displayEnergy();
+		gorilla.eatBananas();
+		gorilla.eatBananas();
+		mammal.displayEnergy();
+		gorilla.climb();
+		mammal.displayEnergy();
 		
 	}
 
